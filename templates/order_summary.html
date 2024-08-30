@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        li {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        h2 {
+            margin: 20px 0;
+            color: #e74c3c;
+        }
+        button {
+            background: #27ae60;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s ease;
+            margin: 10px;
+        }
+        button:hover {
+            background: #1e8449;
+        }
+        a {
+            color: #27ae60;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Order Summary</h1>
+        <ul>
+            {% for item in items %}
+                <li>{{ item }}: Rs{{ menu[item] }}</li>
+            {% endfor %}
+        </ul>
+        <h2>Total Amount: Rs{{ total }}</h2>
+        <form action="{{ url_for('order_summary') }}" method="POST">
+            <button type="submit">Download Bill as PDF</button>
+        </form>
+        <form action="{{ url_for('menu') }}" method="GET">
+            <button type="submit">Back to Menu</button>
+        </form>
+        <form action="{{ url_for('logout') }}" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f0f2f5;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 500px;
+            margin: 20px;
+        }
+        h1 {
+            color: #3498db;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+        .timer {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+    </style>
+    <script>
+        setTimeout(function() {
+            window.location.href = "{{ url_for('login') }}";
+        }, 5000);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Restaurant App</h1>
+        <p>Redirecting to login/register in <span class="timer">5 seconds</span>...</p>
+    </div>
+</body>
+</html>
